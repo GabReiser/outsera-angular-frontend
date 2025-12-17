@@ -40,6 +40,6 @@ ng serve
 
 O projeto possui cobertura de testes para serviõs e componentes para validar logica de negócio e integração com a API.
 
-'```bash 
+```bash 
 ng test
 ```
