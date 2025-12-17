@@ -1,39 +1,40 @@
 <div class="list-container">
   
-  <div class="card filters">
-    <div class="filter-group">
-      <label for="year">Filtrar por Ano:</label>
-      <input 
-        id="year"
-        type="number" 
-        placeholder="Ex: 2018" 
-        [(ngModel)]="filterYear" 
-        (change)="onFilterChange()"
-        (keyup.enter)="onFilterChange()"
-      >
-    </div>
-
-    <div class="filter-group">
-      <label for="winner">Filtrar por Vencedor:</label>
-      <select id="winner" [(ngModel)]="filterWinner" (change)="onFilterChange()">
-        <option value="all">Todos</option>
-        <option value="true">Sim (Vencedores)</option>
-        <option value="false">Não</option>
-      </select>
-    </div>
-  </div>
-
   <div class="card">
     <h3>Listagem de Filmes</h3>
+    
     <table>
       <thead>
         <tr>
-          <th scope="col" style="width: 10%">ID</th>
-          <th scope="col" style="width: 15%">Ano</th>
-          <th scope="col" style="width: 55%">Título</th>
-          <th scope="col" style="width: 20%">Vencedor?</th>
+          <th style="width: 10%">ID</th>
+          
+          <th style="width: 20%">
+            <div class="header-content">
+              <span>Ano</span>
+              <input 
+                type="number" 
+                placeholder="Filtrar por ano" 
+                [(ngModel)]="filterYear" 
+                (change)="onFilterChange()"
+                (keyup.enter)="onFilterChange()">
+            </div>
+          </th>
+          
+          <th style="width: 50%">Título</th>
+          
+          <th style="width: 20%">
+            <div class="header-content">
+              <span>Vencedor?</span>
+              <select [(ngModel)]="filterWinner" (change)="onFilterChange()">
+                <option value="all">Sim/Não</option>
+                <option value="true">Sim</option>
+                <option value="false">Não</option>
+              </select>
+            </div>
+          </th>
         </tr>
       </thead>
+      
       <tbody>
         <tr *ngFor="let movie of movies">
           <td>{{ movie.id }}</td>
@@ -45,7 +46,7 @@
         </tr>
         
         <tr *ngIf="movies.length === 0">
-          <td colspan="4" style="text-align: center; padding: 20px; color: #777;">
+          <td colspan="4" class="no-records">
             Nenhum registro encontrado.
           </td>
         </tr>
@@ -53,31 +54,11 @@
     </table>
 
     <div class="pagination" *ngIf="totalElements > 0">
-      <button 
-        [disabled]="page === 0" 
-        (click)="changePage(0)"
-        title="Primeira Página"
-      >&laquo;</button>
-      
-      <button 
-        [disabled]="page === 0" 
-        (click)="changePage(page - 1)"
-        title="Página Anterior"
-      >&lt;</button>
-
+      <button [disabled]="page === 0" (click)="changePage(0)">&laquo;</button>
+      <button [disabled]="page === 0" (click)="changePage(page - 1)">&lt;</button>
       <span class="page-info">Página {{ page + 1 }} de {{ totalPages }}</span>
-
-      <button 
-        [disabled]="page >= totalPages - 1" 
-        (click)="changePage(page + 1)"
-        title="Próxima Página"
-      >&gt;</button>
-
-      <button 
-        [disabled]="page >= totalPages - 1" 
-        (click)="changePage(totalPages - 1)"
-        title="Última Página"
-      >&raquo;</button>
+      <button [disabled]="page >= totalPages - 1" (click)="changePage(page + 1)">&gt;</button>
+      <button [disabled]="page >= totalPages - 1" (click)="changePage(totalPages - 1)">&raquo;</button>
     </div>
   </div>
 </div>

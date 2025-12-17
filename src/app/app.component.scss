@@ -1,82 +1,88 @@
-.main-layout {
+.layout-wrapper {
   display: flex;
-  min-height: 100vh;
+  flex-direction: column;
+  height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.navbar {
-  width: 200px; /* Menu lateral fixo */
-  background-color: #333;
+.top-bar {
+  background-color: #343a40;
   color: #fff;
-  padding: 20px;
+  height: 56px;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  padding: 0 20px;
+  flex-shrink: 0; 
 
   .brand {
     font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-weight: 500;
   }
+}
 
-  .nav-links {
+.content-wrapper {
+  display: flex;
+  flex: 1; 
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 220px; 
+  background-color: #f8f9fa;
+  border-right: 1px solid #dee2e6; 
+  padding: 20px;
+  flex-shrink: 0;
+
+  ul {
     list-style: none;
     padding: 0;
     margin: 0;
+  }
 
-    li {
-      margin-bottom: 10px;
+  li {
+    margin-bottom: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #495057;
+    display: block;
+    padding: 5px 0;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #007bff;
     }
 
-    a {
-      text-decoration: none;
-      color: #ccc;
-      font-size: 1rem;
-      display: block;
-      padding: 10px;
-      border-radius: 4px;
-      transition: background 0.2s;
-
-      &:hover {
-        background-color: #444;
-        color: #fff;
-      }
-
-      &.active {
-        background-color: #007bff;
-        color: #fff;
-        font-weight: 500;
-      }
+    &.active {
+      color: #007bff;
+      font-weight: 500;
     }
   }
 }
 
-.content {
-  flex: 1; /* Ocupa o restante da tela */
+.main-content {
+  flex: 1;
+  background-color: #ffffff; 
   padding: 20px;
-  background-color: #f5f7fa; /* Fundo cinza claro para destacar os cards */
-  overflow-y: auto;
+  overflow-y: auto; 
 }
 
-/* Ajuste para Mobile (Responsividade) */
 @media (max-width: 768px) {
-  .main-layout {
+  .content-wrapper {
     flex-direction: column;
   }
 
-  .navbar {
+  .sidebar {
     width: 100%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
     padding: 10px 20px;
-    box-sizing: border-box;
-
-    .nav-links {
+    
+    ul {
       display: flex;
-      gap: 15px;
-      
-      li { margin: 0; }
+      gap: 20px;
     }
   }
 }
