@@ -22,3 +22,24 @@ Este projeto é uma aplicação web desenvolvida em **Angular** para visualizar 
    ```bash
    git clone [https://github.com/GabReiser/outsera-angular-frontend.git](https://github.com/GabReiser/outsera-angular-frontend.git)
    outsera-angular-frontend
+   ```
+
+2. Instale as dependências:
+
+```bash 
+npm install
+```
+
+3. Executar o aplicativo:
+
+```bash 
+ng serve
+```
+
+## Testes Unitarios
+
+O projeto possui cobertura de testes para serviõs e componentes para validar logica de negócio e integração com a API.
+
+'```bash 
+ng test
+```
