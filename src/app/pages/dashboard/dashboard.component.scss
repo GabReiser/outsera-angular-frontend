@@ -1,0 +1,61 @@
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 colunas */
+  gap: 20px;
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* Vira 1 coluna em mobile */
+  }
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  h3 { margin-top: 0; font-size: 1.1rem; margin-bottom: 15px; }
+  h4 { margin: 10px 0 5px; font-size: 0.9rem; color: #555; }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+
+  th, td {
+    border: 1px solid #eee;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th { background-color: #f9f9f9; font-weight: 600; }
+  tr:nth-child(even) { background-color: #fdfdfd; }
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+
+  input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+  }
+
+  button {
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+    &:hover { background-color: #0056b3; }
+  }
+}
